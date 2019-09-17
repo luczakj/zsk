@@ -43,7 +43,40 @@
       echo $y;  //4
       $y = ++$x; //     y=6
       echo $y; //6
-      echo ++$y; //7
+      echo ++$y.'<hr>'; //7
+
+      //==================================
+
+      $text1 = '4ssd';
+      $text2 = 'Drugi tekst';
+      $text3 = '7';
+      $num = 15;
+      $j = -1;
+      $c = 100;
+
+      //operatory rzutowania
+
+      //bool //int //float //string //object //array //unset
+      $x =(int)$text1;
+      echo $x.'<br>';
+
+      $x = (bool)$j;
+      echo $x.'<br>';
+
+      $c = (unset)$c;
+      echo $c;
+      echo gettype($c);
+
+      $l = (float)$num;
+      echo gettype($l).'<br>';
+
+      //rozmiar tyou integer
+
+      echo PHP_INT_SIZE.'<br>'; //8B
+
+      $w;
+      echo @gettype($w);
+
     ?>
 </body>
 </html>
