@@ -87,7 +87,71 @@
     */
 
     $text1 = 'abcdabcd';
-    $text2 = 'ab';
+    $text2 = 'ab';//ab
+    $pos = strpos($text1,$text2);
+    echo '<hr>';
+    if($pos > -1){
+      echo 'woah';
+    }else{
+      echo 'ni ma';
+    }
+
+    if(strpos($text1,$text2) === false){
+      echo 'woah';
+    }else{
+      echo 'ni ma';
+    }
+
+    //przetwarzanie ciagu znakow
+
+    $replace = str_replace('%name%', 'Janusz', 'Mam na imie: %name%');
+    echo $replace,'<br>';
+
+    //substr
+
+    $surname = substr('Janusz Kowalski', 3);
+    echo $surname,'<br>';
+
+    $surname = substr('Janusz Kowalski', -5);
+    echo $surname,'<br>';
+
+    $surname = substr('Janusz Kowalski', 7, -3);
+    echo $surname,'<br>';
+
+    //zamiana polskich znakow
+
+    $login = 'żąkol';
+    $censore = array('ą','ę','ś','ć','ź','ż','ó','ń','ł');
+    $replace = array('a','e','s','c','z','z','o','n','l');
+
+    $newlogin = str_replace($censore, $replace, $login);
+    echo ucfirst($newlogin),'<hr>';
+
+    ob_clean();
+
+    /*
+    Zad.2
+    Napisz aplikacje cenzurującą 'biały' i 'czarny' na ciag '#####'
+    */
+
+    echo <<< FORM
+      <form method="post">
+        <input type="text" name="dane" placeholder="wpisz zdanie"><br><br>
+        <input type="submit" value="Zatwierdz">
+      </form>
+    FORM;
+
+    if (isset($_POST['dane'])){
+      $data = $_POST['dane'];
+
+      $censore = array('biały','czarny');
+      $replace = '######';
+
+      $new = str_replace($censore, $replace, $data);
+      echo 'dane przed sprawdzeniem','<h6>',$data,'</h6>','<br>';
+      echo 'dane po sprawdzeniu','<h3>',$new,'</h3>','<br>';
+
+    }
 
 
 
